@@ -1,0 +1,53 @@
+<!--pages/group/myGroup.wxml-->
+<view class='myGroup'>
+    <view class='swiper-tab' id='swiperTab'>
+        <view class='tab-item {{currentTab==0 ? "hover": ""}}' data-current='0' bindtap='switchNav'>全部</view>
+        <view class='tab-item {{currentTab==1 ? "hover": ""}}' data-current='1' bindtap='switchNav'>待成团</view>
+        <view class='tab-item {{currentTab==2 ? "hover": ""}}' data-current='2' bindtap='switchNav'>已成团</view>
+        <view class='tab-item {{currentTab==3 ? "hover": ""}}' data-current='3' bindtap='switchNav'>已失效</view>
+    </view>
+    <!--全部订单  -->
+    <view class='swiper' wx:if='{{key[currentTab].no}}==currentTab'>
+         <view class='no-order' wx:if='{{listData.length == 0}}'>
+            <image src='/images/order-search.png' mode='aspectFill'></image>
+            <text>您还没有拼团订单</text>
+        </view> 
+        <!--订单列表  -->
+        <view class='order-list'>
+          <block wx:for='{{listData}}' wx:key='listData'>
+            <view class='order-item'>
+              <!--订单编号、状态  -->
+              <view class='item-top cf' data-gid='{{item.gid}}' catchtap='myGroup_detail'>
+                <text class='order-code fl'>拼团号：{{item.group_sn}}</text>
+                <text class='order-state fr'>{{item.groupbuy_desc}}</text>
+              </view>
+              <!--商品信息  -->
+              <view class='prod-box' data-gid='{{item.gid}}' catchtap='myGroup_detail'>
+                <image class='prod-img' src='{{item.goods_thumb}}'></image>
+                <view class='prod-info'>
+                  <view class='prod-name'>{{item.goods_name}}</view>
+                  <view class='prod-spec'>{{item.goods_spec}}</view>
+                  <view class='prod-price'>
+                    <view class='price-box'>
+                      拼团价 ¥<text class='price'>{{item.group_price}}</text><text class='price-old'>{{item.market_price}}</text>
+                    </view>
+                    <view class='group-number'><text class='number'>{{item.groupbuy_person_limit}}</text>人团/差<text class='number'>{{item.left_person_num}}</text>人</view>
+                  </view>
+                </view>
+              </view>
+              <view class='btn-box cf' wx:if="{{item.groupbuy_button.text}}">
+                <button class='share-btn fr' data-gid='{{item.gid}}' type="warn" plain="true" open-type="share">{{item.groupbuy_button.text}}</button>
+              </view>
+              <view class='btn-box cf' wx:if="{{item.refund_button.text}}">
+                <button class='share-btn fr' data-orderid='{{item.order_id}}' type="warn" plain="true" catchtap='refund_button'>{{item.refund_button.text}}</button>
+              </view>
+            </view>
+          </block> 
+          
+        </view>
+        <view wx:if='{{listData.length != 0}}' class='no-enough'>
+            没有更多了~
+        </view>
+    </view>
+</view>
+

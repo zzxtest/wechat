@@ -1,0 +1,66 @@
+<!--pages/subOrder/subOrder.wxml-->
+<view class='subOrder'>
+  <!-- 个人信息 -->
+   <view wx:if='{{orderData.address.address_id}}' class='personal' bindtap='addressChange'>
+    <view class='name-box'>
+      <span class="title">{{orderData.address.consignee}}</span>
+      <text class='mobile'>{{orderData.address.mobile}}</text>
+    </view>
+    <view class='address-box'>
+      <!-- <span class="title">收货地址</span> -->
+      <text class='address'>{{orderData.address.str_address}}</text>
+      <image class='icon-r' style='right:30rpx;' src='/images/icon_r.png'></image>
+    </view>
+  </view> 
+  <view wx:else class='personal' data-empty='{{empty}}' bindtap='addressChange'>
+    <image class='empty-img' src='/images/address.png'></image>
+  </view>
+  <image class='hr' src='/images/hr.png'></image>
+  <view class='IDcard-box cf' wx:if='{{orderData.order_type == 2}}'>
+    <text class='IDcard-title fl'>身份证</text>
+    <input class='IDcard fl' bindinput='IDcardInput' type='idcard' placeholder='请输入身份证号' disabled='{{hidden}}' focus="{{!hidden}}" value='{{id_card}}'></input>
+    <button class='IDcard-btn fr' type='warn' plain='true' hidden='{{hidden}}' bindtap='saveIDcard'>保存</button>
+    <image class='Group' src='/images/Group.png' hidden='{{!hidden}}' bindtap='showIDcard'></image>
+  </view>
+  <view class='prod-list' wx:for='{{orderData.order_goods}}' wx:for-index="index" wx:key='*this.goods_id'>
+    <view class='prod-item'>
+      <image class='prod-img' src='{{item.goods_thumb}}'></image>
+      <view class='prod-info'>
+        <image class='prod_icon' src='{{item.label_img}}' bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+        <text class='prod-name' style='text-indent:{{images[index].width+10}}rpx;'>{{item.goods_name}}</text>
+        <view class='prod-spec'>{{item.goods_spec}}</view>
+        <view class='prod-price cf'>
+          <span class="price-box fl">￥<text class='price'>{{item.goods_price}}</text></span>
+          <text class='num fr'>x{{item.goods_number}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='allot'>
+    <view class='allot-box cf'>
+      <text class='fl'>配送方式</text>
+      <view  class='fr shopping'>
+        <picker class='shoppings' bindchange="shoppingChange" value="{{index}}" range="{{shipping}}" range-key="shipping_name">
+          <view class="weui-input">{{shipping_name}}</view>
+        </picker>
+      </view>
+      <image class='icon-r' src='/images/icon_r.png'></image>
+    </view>
+  </view>
+  <view class='allot total'>
+    <view class='allot-box total-box cf'>
+      <text class='fl'>商品总额</text>
+      <text class='fr'>{{goods_amount}}</text>
+    </view>
+  </view>
+  <view class='allot'>
+    <view class='allot-box cf'>
+      <text class='fl'>运费</text>
+      <text class='fr'>{{shipping_fee}}</text>
+    </view>
+  </view>
+  <view class='order-price-box'>实付金额 <span class="order-price">￥<text>{{orderprice}}</text></span></view>
+  <button wx:if='{{orderprice == "0.00"}}' class='pay-btn' type="primary" catchtap='fast_sumbit'>提交订单</button>
+  <button wx:else class='pay-btn' type="primary" catchtap='pay_btn'>微信支付</button>
+
+</view>

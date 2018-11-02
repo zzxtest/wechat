@@ -1,0 +1,28 @@
+<!--pages/act/group_buy.wxml-->
+<import src="../../common/wxml/login.wxml" />
+
+<template is="login" data='{{Hidden}}'></template>
+<view class='group_buy'>
+  <block wx:for='{{group_list}}' wx:key='*this'>
+    <view class='prod-item'>
+      <image class='prod-img' src='{{item.goods_thumb}}' data-actid='{{item.act_id}}' catchtap='groupDetail'></image>
+      <view class='prod-info' data-actid='{{item.act_id}}' catchtap='groupDetail'>
+        <view class='prod-name'>{{item.goods_name}}</view>
+        <view class='prod-time'>
+          <view class='cDown cf'>
+            <text class='cdown-tip fl'>距结束</text>
+            <text class='group-time fl'>{{item.hour}}</text><text class='group-unit fl'>:</text>
+            <text class='group-time fl'>{{item.minute}}</text><text class='group-unit fl'>:</text>
+            <text class='group-time fl'>{{item.second}}</text>
+          </view>
+          <view class='num-box'><text class='numAll'>{{item.group_limit}}</text>人团</view>
+        </view>
+        <view class='prod-price'>
+          <text class='price-tip'>拼团价</text>￥<text class='price'>{{item.group_price}}</text>
+          <text class='price-old'>{{item.market_price}}</text>
+        </view>
+      </view>
+      <button class='group-btn' type='warn' data-actid='{{item.act_id}}' data-btnType='1' catchtap='subOrder'>一键开团</button>
+    </view>
+  </block>
+</view>

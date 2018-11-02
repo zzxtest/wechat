@@ -1,0 +1,295 @@
+page{
+  height: 100%;
+}
+.hide{
+  display: none !important;
+}
+.show{
+  display: block !important;
+}
+image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.as_head {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: center;
+  border: 1rpx solid #f3f3f3;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.back_icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+}
+
+.as_title {
+  flex: 1;
+  color: #3b3b3b;
+  font-size: 38rpx;
+}
+
+/* 地址列表 */
+
+.as_list {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+}
+
+.as_tit_info {
+  font-size: 30rpx;
+  color: #3b3b3b;
+}
+
+.consignee_name {
+  margin-right: 30rpx;
+}
+
+.address_info {
+  font-size: 30rpx;
+  color: #908f93;
+  margin-top: 10rpx;
+}
+
+.operation {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 20rpx;
+}
+
+.default_address {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 5rpx;
+  border: 2rpx solid #ccc;
+  margin-right: 10rpx;
+}
+.default_ck{
+  border-color: #f55b53;
+}
+
+.default_address image {
+  width: 70%;
+  height: 70%;
+  margin: 4rpx auto;
+}
+
+.operation text {
+  font-size: 30rpx;
+  color: #908f93;
+}
+
+.edit_btn, .del_btn {
+  width: 90rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #908f93;
+  border: 1px solid #e3e3e3;
+  display: inline-block;
+  border-radius: 8rpx;
+}
+
+.edit_btn {
+  margin-left: 45%;
+  margin-right: 30rpx;
+}
+
+/* 添加按钮 */
+.add_btn{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 0;
+}
+
+/* 空列表显示 */
+.empty_list{
+  background: #fff;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;/*水平居中*/
+}
+.add_icon{
+  width: 560rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  margin-top: -200rpx;
+  display: block;
+}
+.empty_list text{
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 10rpx;
+  display: inline-block;
+}
+.empty_list text text{
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+}
+.empty_list button{
+  padding: 5rpx 0;
+  width: 400rpx;
+  display: block;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  background: #f55b53;
+}
+
+/* 编辑、新建地址 */
+.edit_box{
+  position: relative;
+  height: 100%; 
+}
+.as_info_box{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f3f3f3;
+  background: #fff;
+}
+.as_info_box:nth-child(1){
+  border-top: 1rpx solid #f3f3f3;
+}
+.as_info_text,.as_fill_in,.address_three{
+  font-size: 30rpx;
+  color: #3b3b3b;
+  flex: 1;
+  padding: 0 20rpx;
+  line-height: 50rpx;
+}
+.as_fill_in{
+  flex: 4;
+  color: #666;
+  padding-left:0; 
+}
+.address_three{
+  color: #666;
+  flex: 3;
+  padding-left: 0;
+}
+.address_more{
+  flex: 1;
+}
+.address_more image{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  margin-top: 10rpx; 
+}
+.confirm_btn{
+  width: 90%;
+  padding: 20rpx 0;
+  text-align: center;
+  background: #f55b53;
+  color: #fff;
+  margin: 40rpx auto;
+  border-radius: 10rpx;
+}
+.confirm_back{
+  width: 100%;
+  height: 600rpx;
+  position: absolute;
+  top: 510rpx;
+  left: 0;
+  right: 0;
+  /* background-color: rgba(0, 0, 0, 0.3) */
+}
+
+/* 地址选择 */
+.adress-bg{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999
+}
+.adress-bg-back{
+  width: 100%;
+  height: 720rpx;
+  position: fixed;
+  bottom: 600rpx;
+  left: 0;
+  right: 0;
+}
+.address_choice_box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 600rpx;
+  background-color: #fff;
+}
+.addr-box{
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #b5b5b5;
+  height: 40rpx;
+  line-height: 40rpx; 
+}
+.scroll-view{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 500rpx;
+}
+.choice_info{
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1rpx solid #f3f3f3;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.choice_info:nth-child(1){
+  border-top: 1rpx solid #f3f3f3;
+}
+.choice_info image,.choice_info text{
+  font-size: 30rpx;
+  color: #3b3b3b;
+  margin: 0 20rpx;
+}
+.choice_info image{
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+  margin-top: 8rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

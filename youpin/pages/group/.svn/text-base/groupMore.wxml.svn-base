@@ -1,0 +1,33 @@
+<!--pages/group/groupMore.wxml-->
+<import src="../../common/wxml/login.wxml" />
+
+<template is="login" data='{{Hidden}}'></template>
+<view class='groupMore'>
+  <view class='prod-box'>
+    <image class='prod-img' src='{{groupList.goods_thumb}}'></image>
+    <view class='prod-info'>
+      <view class='prod-name'>{{groupList.goods_name}}</view>
+      <view class='prod-spec'>{{groupList.goods_spec}}</view>
+      <view class='prod-price'>
+        <view class='price-box'>
+          拼团价 ¥<text class='price'>{{groupList.group_price}}</text><text class='price-old'>{{groupList.market_price}}</text>
+        </view>
+        <view class='group-number'><text class='number'>{{groupList.group_number}}</text>人团</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='group-open-list'>
+    <view class='group-open-item' wx:for="{{groupList.group_dynamic_info}}" wx:key="*this">
+      <view class='user-info cf' data-gid='{{item.gid}}' catchtap='myGroup_detail'>
+        <image class='user-img fl' src='{{item.user_photo}}'></image>
+        <text class='user-name fl'>{{item.user_name}}</text>
+      </view>
+      <view class='group-numSurp-box'>
+        <button class='join-btn fr' type='warn'  data-btnType='2' data-actid='{{groupList.act_id}}' data-gid='{{item.gid}}' catchtap='join_groupbuy'>立即参加</button>
+        <view class='group-open-tip fr'>还差 <text class='group-numSurp'>{{item.left_person_num}}</text>人成团</view>
+      </view>
+    </view> 
+  </view>
+  <view class='groupMore-tip'>没有更多拼团~</view>
+</view>

@@ -1,0 +1,26 @@
+<!--pages/act/HKmail.wxml-->
+<view class='HKmail'>
+  <image class='banner' src='{{actHK.banner}}'></image>
+  <view class='prod-box'>
+    <view class='prod-list cf'>
+      <block wx:for='{{HKgoods}}' wx:key='*this.goods_id'>
+        <view class='prod-item' data-goodsid='{{item.goods_id}}' data-goodsspecid='{{item.goods_spec_id}}'  data-actid='{{item.act_id}}' catchtap='detail'>
+          <image class='prod-img' src='{{item.goods_thumb}}'></image>
+          <text class='prod-name'>{{item.goods_name}}</text>
+          <view class='prod-price-box'>
+            <span class='price-box'>￥<text class='price'>{{item.goods_price}}</text></span>
+            <text class='or-price'>{{item.market_price}}</text>
+            <image class='prod-btn' src='/images/car_icon.png'></image>
+          </view>
+          <view class='prod-num-box' wx:if='{{item.xiangou != ""}}'>
+            <image class='prod_icon' src='/images/prod_icon.png'></image>
+            <text class='prod-num'>{{item.xiangou}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view wx:if='{{HKgoods.length != 0}}' class='no-enough'>
+        已经没有更多产品了~
+    </view>
+  </view>
+</view>

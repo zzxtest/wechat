@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<import src="../../common/wxml/login.wxml" />
+
+<template is="login" data='{{Hidden}}'></template>
+<view class='scanCode-bg' hidden='{{scanCodeHidden}}' catchtap='scanCodeHidden'>
+  <view class='scanCode-box'>
+    <image class='scanCode-title' src='/images/pop_icon_2.png'></image>
+    <view class='scanCode-tip'>扫码下载淘宠APP</view>
+    <image class='scanCode' src='/images/scanCode.png'></image>
+  </view>
+</view>
+<view class='index'>
+ <!-- banner -->
+  <view class='banner'>
+     <swiper class='banner-swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="" indicator-active-color="#fff">
+        <block wx:for="{{banner}}" wx:key="*this">
+          <swiper-item>
+            <image class='swiper-image' src='{{item.imgurl}}' data-actType='{{item.target}}' catchtap='goAct' ></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!--活动入口  -->
+  <view class='inlet'>
+    <view class='inlet-btn'  data-actType="nomeney_buy" catchtap='goAct'>
+      <image class='inlet-img' src='/images/icon_1.png'></image>
+      <text>零元购</text>
+    </view>
+    <view class='inlet-btn' data-actType="direct_mail" catchtap='goAct'>
+      <image class='inlet-img' src='/images/icon_2.png'></image>
+      <text>海外直邮</text>
+    </view>
+    <view class='inlet-btn' data-actType="direct_APP" catchtap='goAct'>
+      <image class='inlet-img' src='/images/icon_3.png'></image>
+      <text>下载APP</text>
+    </view>
+  </view>
+  <!-- 拼团抢购  -->
+  <view class='special' wx:if="{{group_buying.length !=0}}" data-actType="group_buy" catchtap='goAct'>
+    <image class='special-title' src='/images/group_title.png'></image>
+    <!-- <view class='group-all'> -->
+      <text class='group-all'>查看全部</text>
+      <image class='icon_r' src='/images/icon_r.png'></image>
+    <!-- </view> -->
+  </view>
+  <view class='group-buying'>
+    <scroll-view class="scroll-view" scroll-x="true"style="width: 100%">
+      <view class="scroll-view-item" wx:for="{{group_buying}}" data-actid='{{item.act_id}}' catchtap='groupDetail'>
+        <image class='group-img' src='{{item.goods_thumb}}'></image>
+        <view class='group-name'>{{item.goods_name}}</view>
+        <view class='group-price'>￥{{item.group_price}} <text class='group-or-price'>{{item.market_price}}</text></view>
+        <view class='group-cdown cf'>
+          <text class='cdown-tip'>距结束</text>
+          <text class='group-time'>{{item.hour}}</text><text class='group-unit'>:</text>
+          <text class='group-time'>{{item.minute}}</text><text class='group-unit'>:</text>
+          <text class='group-time'>{{item.second}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!--特价产品  -->
+  <view class='special' wx:if="{{actSpecial.length !=0}}"><image class='special-title' src='/images/icon_title.png'></image></view>
+  <view class='prod-box'>
+    <view class='prod-list cf'>
+      <block wx:for='{{actSpecial}}' wx:key='*this.goods_id'>
+        <view class='prod-item' data-goodsid='{{item.goods_id}}' data-goodsspecid='{{item.goods_spec_id}}'  data-actid='{{item.act_id}}' catchtap='detail'>
+          <image class='prod-img' src='{{item.goods_thumb}}'></image>
+          <text class='prod-name'>{{item.goods_name}}</text>
+          <view class='prod-price-box'>
+            <span class='price-box'>￥<text class='price'>{{item.goods_price}}</text></span>
+            <text class='or-price'>{{item.market_price}}</text>
+            <image class='prod-btn' src='/images/car_icon.png'></image>
+          </view>
+          <view class='prod-num-box'  wx:if='{{item.xiangou != ""}}'>
+            <image class='prod_icon' src='/images/prod_icon.png'></image>
+            <text class='prod-num'>{{item.xiangou}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view wx:if='{{actSpecial.length != 0}}' class='no-enough'>
+        已经没有更多产品了~
+    </view>
+  </view>
+</view>

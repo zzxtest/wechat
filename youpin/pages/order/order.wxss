@@ -1,0 +1,142 @@
+/* pages/order/order.wxss */
+page {
+    height: 100%;
+    padding-bottom: 0 !important;
+}
+.order {
+    background: #fafafa;
+    height: 100%;
+}
+.swiper-tab {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 32rpx;
+    background-color: #fff;
+    color: #909092;
+    position: fixed;
+    z-index: 999;
+}
+.tab-item {
+    padding: 15rpx;
+}
+
+.hover {
+    border-bottom: 5rpx #F55A52 solid;
+    color: #000;
+}
+.swiper {
+    padding-top: 90rpx;
+    background-color: #fafafa;
+}
+/*订单列表  */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.order-item{
+  background: #fff;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.item-top{
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx #f6f6f6 solid;
+}
+.order-state{
+  color: #ee6555
+}
+.item-cont{
+  padding: 15rpx 20rpx;
+  display: flex;
+  border-bottom: 1rpx #f6f6f6 solid;
+}
+.prod-img{
+  width: 150rpx;
+  height: 150rpx;
+  flex: 1;
+}
+.prod-box{
+  flex: 3;
+  padding-left: 20rpx;
+}
+.prod-name{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  margin-bottom: 10rpx;
+  min-height: 40rpx;
+}
+.prod-spec{
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+  min-height: 30rpx;
+}
+.prod-price{
+  color: #ee6555;
+}
+.prod-num{
+  color: #9f9f9f;
+}
+.item-bottom{
+  padding: 20rpx;
+  line-height: 5rpx;
+  /* border-top: 1rpx #f6f6f6 solid; */
+}
+.order-amount{
+  line-height: 60rpx;
+}
+.f-btn,.t-btn{
+  margin-left: 20rpx;
+  min-width: 88px;
+  /* padding: 0 14rpx !important; */
+  border: 1rpx #ccc solid !important;
+  color: #999 !important;
+}
+.f-btn:last-child{
+  border: 1rpx #f15d53 solid !important;
+  background-color: #f15d53 !important;
+  color: #fff !important;
+}
+
+
+
+
+
+
+
+/*暂无此类订单  */
+
+.no-order {
+    padding-top: 200rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.no-order image {
+    width: 384rpx;
+    height: 244rpx;
+}
+
+.no-order text {
+    font-size: 25rpx;
+    color: #8f8f8f;
+    margin-top: 30rpx;
+}
+
+.no-enough {
+    height: 50rpx;
+    font-size: 28rpx;
+    color: #8f8f8f;
+    text-align: center;
+    padding: 10rpx 0;
+}

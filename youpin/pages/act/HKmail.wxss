@@ -1,0 +1,99 @@
+/* pages/act/HKmail.wxss */
+.zeroBuy,page{
+  background: #FCEECF;
+}
+/*banner  */
+.banner{
+  display: block;
+  width: 100%;
+  height: 320rpx;
+}
+.prod-box{
+
+}
+.prod-list{
+
+}
+.prod-item{
+  position: relative;
+  background: #fff;
+  margin: 0 10rpx 10rpx 0;
+  width: 370rpx;
+  float: left;
+}
+.prod-item:nth-child(2n){
+  margin-right: 0;
+}
+.prod-img{
+  display: block;
+  width: 100%;
+  height: 370rpx;
+}
+.prod-name{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: -0.36px;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  min-height: 80rpx;
+}
+.prod-price-box{
+  padding: 10rpx;
+  position: relative;
+}
+.price-box{
+  font-size: 30rpx;
+  color: #F55A52;
+  letter-spacing: -0.36px;
+  line-height: 21px;
+}
+.price{
+  font-size: 36rpx;
+}
+.or-price{
+  font-size: 26rpx;
+  color: #999999;
+  letter-spacing: -0.75px;
+  text-decoration:line-through;
+  margin-left: 20rpx;
+}
+.prod-btn{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 16rpx;
+  bottom: 10rpx;
+}
+.prod-num-box{
+  width: 156rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  letter-spacing: -0.36px;
+}
+.prod_icon,.prod-num{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.prod-num{
+  line-height: 48rpx;
+  padding-left: 15rpx;
+}
+.no-enough {
+  height: 50rpx;
+  font-size: 28rpx;
+  color: #8f8f8f;
+  text-align: center;
+  padding: 10rpx 0;
+}

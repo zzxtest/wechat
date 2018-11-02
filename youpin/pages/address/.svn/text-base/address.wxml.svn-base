@@ -1,0 +1,101 @@
+<!--pages/address/address.wxml-->
+<!-- 地址列表 -->
+<view class='address_list_cont {{link_add==1?"hide":"show"}}' data-add='0'>
+  <block wx:for='{{this_address_list}}' wx:for-item='val' wx:key='index'>
+    <view class='as_list' data-num='{{index}}'>
+      <view data-def="{{index}}"  data-addressid='{{val.address_id}}' catchtap='default_icon'>
+        <view class='as_tit_info'>
+          <text class='consignee_name'>{{val.consignee}}</text>
+          <text class='consignee_tel'>{{val.mobile}}</text>
+        </view>
+        <view class='address_info'>{{val.str_address}}</view>
+      </view>
+      <view class='operation'>
+        <view  class='default_address {{val.is_default?"default_ck":""}}' data-addressid='{{val.address_id}}' data-def="{{index}}" bindtap='default_icon'>
+          <image class='hide {{val.is_default?"show":"hide"}}' src='http://saler-10073399.image.myqcloud.com/5c266a90928f55693a34d7f0df4daf8e.png'></image>
+        </view>
+        <text>默认地址</text>
+        <view class='edit_btn' data-addressid='{{val.address_id}}' data-def="{{index}}" bindtap='address_update'>编辑</view>
+        <view class='del_btn' data-addressid='{{val.address_id}}' bindtap='address_delete' >删除</view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 底部添加按钮 -->
+  <button class='add_btn' wx:if='{{!link_add}}'  type='warn' bindtap='add_address_link'>
+    添加其他收货地址
+  </button>
+    
+</view>
+
+<!--  空列表 -->
+<view class='empty_list {{link_add ? "hide":""}}' wx:if="{{this_address_list.length<1}}">
+  <view class='add_icon'>
+    <image src='http://saler-10073399.image.myqcloud.com/795f8f9987c4efae06b8a4d7c20b5866.png'></image>
+  </view>
+  <text>
+    很抱歉!
+    <text>您还没有收货地址</text>
+  </text>
+  <button type='warn' size='mini' bindtap='add_address_link'>立即设置</button>
+</view>
+
+
+<!-- 编辑、添加 -->
+<view class='edit_box hide {{link_add ?"show":"hide"}}'>
+  <view class='as_info_box'>
+    <text class='as_info_text'>收货人</text>
+    <input class='as_fill_in' bindinput='consignee' type='text'  placeholder='请输入姓名' placeholder-style='color:#b5b5b5' value='{{consignee}}'></input>
+  </view>
+  <view class='as_info_box'>
+    <text class='as_info_text'>联系方式</text>
+    <input type='number' class='as_fill_in' bindinput='mobile' placeholder='请输入联系电话' placeholder-style='color:#b5b5b5' value='{{mobile}}' ></input>
+  </view>
+  <view class='as_info_box'>
+    <text class='as_info_text'>所在地区</text>
+    <input class='address_three' type='text' disabled='true' placeholder='请选择所在地区' placeholder-style='color:#b5b5b5' bindtap='addressChange' value='{{province}}  {{city}}   {{district}}'></input>
+    <view class='address_more' bindtap='addressChange'>
+      <image src='http://saler-10073399.image.myqcloud.com/539777656d9a1ae4457005012e1ec949.png'></image>
+    </view>
+  </view>
+  <view class='as_info_box'>
+    <text class='as_info_text'>详细地址</text>
+    <input class='as_fill_in' type='text' bindinput='str_address' placeholder='请输入详细地址' placeholder-style='color:#b5b5b5' value='{{address}}' ></input>
+  </view>
+  <!-- 保存按钮 -->
+  <view class='confirm_btn' data-addressID='{{addressID}}' data-provinceID='{{province_id}}' data-cityID='{{city_id}}' data-districtID='{{district_id}}' catchtap='addressAdd'>保存</view>
+  <view class='confirm_back' catchtap='hide_address_link'></view>
+</view>
+
+
+<!-- 地址选择 -->
+<view class='adress-bg {{adHidden ? "hide":""}}'>
+  <view class='adress-bg-back' catchtap='addressChangeH'></view>
+  <view class='address_choice_box'>
+    <view class='addr-box'>{{province}}  {{city}}  {{district}}</view>
+    <scroll-view class='scroll-view' scroll-y="true" hidden='{{provinceH}}'>
+      <block wx:for="{{addrData}}">
+        <view class='choice_info' data-index='{{index}}' catchtap='province'>
+          <text>{{item.region_name}}</text>
+          <image src='http://saler-10073399.image.myqcloud.com/539777656d9a1ae4457005012e1ec949.png'></image>
+        </view>
+      </block>  
+    </scroll-view>
+    <scroll-view class='scroll-view' scroll-y="true" hidden='{{cityH}}'>
+      <block wx:for="{{addrData}}">
+        <view class='choice_info' data-index='{{index}}' catchtap='city'>
+          <text>{{item.region_name}}</text>
+          <image src='http://saler-10073399.image.myqcloud.com/539777656d9a1ae4457005012e1ec949.png'></image>
+        </view>
+      </block>  
+    </scroll-view>
+    <scroll-view class='scroll-view' scroll-y="true" hidden='{{districtH}}'>
+      <block wx:for="{{addrData}}">
+        <view class='choice_info' data-index='{{index}}' catchtap='district'>
+          <text>{{item.region_name}}</text>
+          <image src='http://saler-10073399.image.myqcloud.com/539777656d9a1ae4457005012e1ec949.png'></image>
+        </view>
+      </block>  
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/group/myGroup_refund.wxml-->
+<view class='myGroup-refund'>
+  <view class='refund'>
+     <picker class='picker' bindchange="bindPickerChange" value="{{index}}" range="{{refund_reason}}">
+      <view class="weui-input">{{refund_reason[index]}}</view>
+    </picker>
+    <image class='icon_r' src='/images/icon_r.png'></image> 
+  </view>
+   <button class='refund-btn' type='warn' catchtap='submit_refund'>提交申请</button> 
+</view>

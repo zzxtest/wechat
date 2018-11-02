@@ -1,0 +1,127 @@
+/* pages/detail/detail.wxss */
+@import "/common/wxss/common.wxss";
+.detail,page{
+  background: #F5F5F5;
+}
+/*banner  */
+.banner{
+  width: 100%;
+  height: 750rpx;
+}
+.banner-swiper{
+  height: 100%;
+}
+.swiper-image{
+  width: 100%;
+  height: 100%;
+}
+
+/* 产品信息 */
+.prod-info{
+  padding: 30rpx 30rpx 10rpx;
+  background-color: #fff;
+}
+.prod-name{
+  font-size: 32rpx;
+  color: #030303;
+  letter-spacing: -0.36px;
+  line-height: 36rpx;
+}
+.icon{
+  margin-right: 10rpx;
+  height: 36rpx;
+  width: 100rpx;
+}
+.prod-price-box{
+  margin-top: 10rpx;
+}
+.price-box{
+  font-size: 30rpx;
+  color: #F55A52;
+  letter-spacing: -0.36px;
+}
+.price{
+  font-size: 40rpx;
+}
+.or-price-box{
+  font-size: 22rpx;
+  color: #999999;
+  letter-spacing: -0.75px;
+  text-decoration:line-through;
+  margin-left: 20rpx;
+  line-height: 66rpx;
+}
+.or-price{
+  font-size: 26rpx;
+}
+.sales{
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 66rpx;
+}
+
+/* 限购数量  */
+.pay-num{
+  background-color: #fff;
+  padding: 30rpx;
+  margin: 20rpx 0;
+  font-size: 30rpx;
+  color: #666;
+  letter-spacing: -0.41px;
+  line-height: 60rpx;
+}
+.input{
+  display: block;
+  width: 58rpx;
+  height: 58rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1px solid #ccc; 
+  float: left;
+}
+.cart-add{
+  border-left: none;
+  border-top-right-radius:15rpx;
+  border-bottom-right-radius:15rpx;
+}
+.cart-reduce{
+  border-right: none;
+  margin-left: 70rpx;
+  border-top-left-radius:15rpx;
+  border-bottom-left-radius:15rpx;
+}
+.cart-text{
+  width: 120rpx;
+  font-size: 30rpx;
+}
+.pay-tip{
+  font-size: 30rpx;
+  color: #999999;
+  letter-spacing: -0.41px;
+  margin-left: 20rpx;
+}
+/*产品详情  */
+.prod-detail{
+  background-color: #FFF;
+}
+.detail-title{
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #666666;
+  letter-spacing: -0.41px;
+  border-bottom: 1rpx #F5F5F5 solid;
+}
+.detail-img{
+  width: 100%;
+  display: block;
+}
+.pay-btn{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  letter-spacing: -0.43px;
+  border-radius: 0;
+}

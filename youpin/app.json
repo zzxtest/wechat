@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/group/myGroup",
+    "pages/group/myGroup_detail",
+    "pages/group/myGroup_refund",
+    "pages/act/zeroBuy",
+    "pages/act/HKmail",
+    "pages/act/group_buy",
+    "pages/order/order",
+    "pages/detail/detail",
+    "pages/subOrder/subOrder",
+    "pages/group/groupMore",
+    "pages/detail/group_detail",
+    "pages/address/address"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "淘宠优选",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#272636",
+    "selectedColor": "#F55A52",
+    "backgroundColor": "#fff",
+    "borderStyle": "#a8a8a8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_select.png",
+        "color": "white",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order_selected.png",
+        "color": "white",
+        "text": "订单"
+      }
+    ]
+  }
+}

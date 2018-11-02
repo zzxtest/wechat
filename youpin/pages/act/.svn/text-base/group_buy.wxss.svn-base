@@ -1,0 +1,89 @@
+/* pages/act/group_buy.wxss */
+@import "/common/wxss/common.wxss";
+page{
+  padding: 0;
+  background-color: #fff;
+}
+.prod-item{
+  padding: 20rpx 30rpx;
+  display: flex;
+  border-bottom: 1rpx solid #EFEFEF;
+  position: relative
+}
+.prod-img{
+  flex: 4;
+  width: 200rpx;
+  height: 210rpx;
+}
+.prod-info{
+  flex: 9
+}
+.prod-name{
+  font-size: 30rpx;
+  color: #333333;
+  min-height: 80rpx; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box;  
+  -webkit-box-orient:vertical; 
+  -webkit-line-clamp:2;
+}
+.prod-time{
+  display: flex;
+}
+.cDown{
+  flex: 3;
+  font-size: 26rpx;
+  color: #999999;
+}
+.num-box{
+  flex: 1;
+  font-size: 24rpx;
+  color: #000;
+  text-align: right;
+}
+.numAll{
+  color: #F55A52;
+}
+.cdown-tip{
+  float: left;
+  margin-right: 10rpx;
+  line-height: 35rpx; 
+}
+.group-time{
+  line-height: 35rpx; 
+  float: left;
+  background-color: #4c4c4c;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 0 6rpx;
+  border-radius: 5rpx;
+}
+.group-unit{
+  float: left;
+  padding: 0 5rpx;
+  line-height: 35rpx; 
+}
+.prod-price{
+  font-size: 24rpx;
+  color: #F55A52;
+  margin-top: 45rpx;
+}
+.price-tip{
+  font-size: 24rpx;
+}
+.price{
+  font-size: 32rpx;
+}
+.price-old{
+  color: #999999;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+.group-btn{
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}

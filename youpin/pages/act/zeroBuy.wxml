@@ -1,0 +1,50 @@
+<!--pages/act/zeroBuy.wxml-->
+<!--零元购  -->
+<view class='zeroBuy' style='overflow: hidden; height: {{popHidden ? "auto" : screenHeight }};'>
+  <image class='banner' src='{{actData.banner}}'></image>
+  <view class='content'>
+    <view class='time-top'>
+      <view class='time-title' wx:if='{{startSecond > 0}}'>距活动开始</view>
+      <view class='time-title' wx:else>距活动结束</view>
+    </view>
+    <view class='time-box'>
+      <view class='time'>{{Day}}</view><text class='unit'>天</text>
+      <view class='time'>{{Hour}}</view><text class='unit'>时</text>
+      <view class='time'>{{Minute}}</view><text class='unit'>分</text>
+      <view class='time'>{{Second}}</view><text class='unit'>秒</text>
+    </view>
+    <view class='prod-list'>
+      <block wx:for='{{goodsData}}' wx:for-index="index" wx:key='*this.goods_id'>
+        <view class='prod-item' data-goodsid='{{item.goods_id}}' data-goodsspecid='{{item.goods_spec_id}}'  data-actid='{{item.act_id}}' catchtap='detail'>
+          <image class='prod-img' src='{{item.goods_thumb}}' ></image>
+          <view class='prod-info'>
+            <text class='prod-name'>{{item.goods_name}}</text>
+            <!-- <view class='prod-spec'>{{item.xiangou}}</view> -->
+            <view class='prod-price cf'>
+              <span class="price-box fl">￥<text class='price'>{{item.goods_price}}</text></span>
+              <text class='or-price fl'>￥{{item.market_price}}</text>
+            </view>
+          </view>
+          <view class='prod-num-box' wx:if='{{item.xiangou != ""}}'>
+            <image class='prod_icon' src='/images/prod_icon.png'></image>
+            <text class='prod-num'>{{item.xiangou}}</text>
+          </view>
+          <button wx:if="{{item.goods_number>0}}" type='warn' class='pay-btn'>立即抢购</button>
+          <image wx:else class='Soldout' src='/images/Soldout.png'></image> 
+        </view>
+      </block>
+      <view wx:if='{{goodsData.length != 0}}' class='no-enough'>
+          已经没有更多产品了~
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='pop-bg' hidden='{{popHidden}}'>
+  <view class='pop-cont'>
+    <image class='pop-img' src='/images/pop_icon.png'></image>
+    <view class='pop-title h3'>活动结束啦~</view>
+    <view class='pop-text'>更多活动请下载淘宠优品APP哦</view>
+    <button class='pop-btn' type='warn'  bindtap='popHidden'>确定</button>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+<template name="login">
+  <view class='login-bg' hidden='{{Hidden}}'>
+    
+    <view class='getPhone'>
+        <view class='login-title'>微信授权</view>
+       <image class='login-logo' src='../../images/logo.png'></image> 
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">极速登录</button>
+    </view>
+    <view class='login-back' catchtap='loginHide'></view>
+  </view>
+</template>

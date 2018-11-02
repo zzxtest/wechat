@@ -1,0 +1,83 @@
+<!--pages/detail/group_detail.wxml-->
+<import src="../../common/wxml/login.wxml" />
+
+<template is="login" data='{{Hidden}}'></template>
+<!--banner  -->
+<view class='group-detail'>
+  <view class='banner'>
+    <swiper class='banner-swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="" indicator-active-color="#fff">
+      <block wx:for="{{groupInfo.goods_gallery}}" wx:key="*this"> 
+        <swiper-item>
+          <image class='swiper-image' src='{{item}}'></image>
+        </swiper-item>
+      </block> 
+    </swiper>
+  </view>
+  <view class='group-detail-info'>
+    <view class='prod-name'>{{groupInfo.goods_name}}</view>
+    <view class='cdown cf'>
+      <text class='cdown-tip fl'>距结束</text>
+      <text class='group-time fl'>{{Hour}}</text><text class='group-unit fl'>时</text>
+      <text class='group-time fl'>{{Minute}}</text><text class='group-unit fl'>分</text>
+      <text class='group-time fl'>{{Second}}</text><text class='group-unit fl'>秒</text>
+    </view>
+    <view class='prod-price'>
+      <view class='price-box'>
+        拼团价 ¥<text class='price'>{{groupInfo.group_price}}</text><text class='price-old'>{{groupInfo.market_price}}</text>
+      </view>
+      <view class='group-number'>已团{{groupInfo.have_groupbuy_person_num}}件</view>
+    </view>
+    <view class='prod-tip' wx:if='{{groupInfo.act_desc.length !=0}}'>
+      <view class='tip-list cf' wx:for="{{groupInfo.act_desc}}" wx:key="*this"><i class='spot fl'></i>{{item}}</view>
+    </view>
+  </view>
+
+  <view class='group-open-box'>
+    <view class='group-open-title' data-actid='{{groupInfo.act_id}}' catchtap='groupMore'>
+      以下小伙伴的团已将近完成 您可以立即加入
+      <text class='group-all'>查看更多</text>
+      <image class='icon_r' src='/images/icon_r.png'></image>
+    </view>
+    <view class='group-open-list' wx:if="{{groupInfo.group_dynamic_info.length>0}}">
+      <swiper class='swiper' indicator-dots="{{!indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="true">
+            <block wx:for='{{groupInfo.group_dynamic_info}}'> 
+            <swiper-item class='swiper-item'>
+              <view class='group-open-item'>
+                <view class='user-info cf' data-gid='{{item.gid}}' catchtap='myGroup_detail'>
+                  <image class='user-img fl' src='{{item.user_photo}}'></image>
+                  <text class='user-name fl'>{{item.user_name}}</text>
+                </view>
+                <view class='group-numSurp-box'>
+                  <button class='join-btn fr' data-btnType='2' data-actid='{{groupInfo.act_id}}' data-gid='{{item.gid}}'  type='warn' catchtap='join_groupbuy'>立即参加</button>
+                  <view class='group-open-tip fr'>还差 <text class='group-numSurp'>{{item.left_person_num}}</text>人成团</view>
+                </view>
+              </view> 
+            </swiper-item>
+          </block>
+      </swiper>
+    </view>
+  </view>
+  <!--产品详情-->
+  <view class='prod-detail'>
+    <view class='detail-title'>产品详情</view>
+    <view wx:for="{{groupInfo.goods_desc}}" wx:for-index="index" wx:key="*this">
+      <image class='detail-img' src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+    </view>
+  </view>
+  <!--按钮  -->
+  <view class='group-detail-btnBox'>
+    <view class='my-group-btn' catchtap='myGroup'>
+      <image class='group-car-icon' src='/images/group_car_icon.png'></image>
+      <view class='last-text'>我的拼团</view>
+    </view>
+    <view class='buy-prod-btn {{groupInfo.is_only ? "" : "no-buy-btn" }}' data-actid='{{groupInfo.act_id}}' data-btnType='0' catchtap='direct_groupbuy'>
+      <view class='first-text'>￥{{groupInfo.only_price}}</view>
+      <view class='last-text'>单独购买</view>
+    </view>
+    <view class='group-prod-btn' data-actid='{{groupInfo.act_id}}' data-btnType='1' catchtap='subOrder'>
+      <view class='first-text'>￥{{groupInfo.group_price}}</view>
+      <view class='last-text'>一键开团</view>
+    </view>
+  </view>
+</view>  

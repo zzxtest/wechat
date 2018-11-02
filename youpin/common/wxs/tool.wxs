@@ -1,0 +1,5 @@
+var getShortCdcName = function (cdcName) {
+  var shortCdcName = cdcName.split('-')[0];
+  return shortCdcName;
+}
+module.exports.getShortCdcName = getShortCdcName;

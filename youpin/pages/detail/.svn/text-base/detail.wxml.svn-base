@@ -1,0 +1,45 @@
+<!--pages/detail/detail.wxml-->
+<import src="../../common/wxml/login.wxml" />
+
+<template is="login" data='{{Hidden}}'></template>
+<view class='detail'>
+  <!--banner  -->
+  <view class='banner'>
+     <swiper class='banner-swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="" indicator-active-color="#fff">
+        <block wx:for="{{prodDetail.goods_gallery}}" wx:key="*this">
+          <swiper-item>
+            <image class='swiper-image' src='{{item}}'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!--商品信息  -->
+  <view class='prod-info'>
+    <view class='prod-name cf'>
+      <image wx:if='{{prodDetail.label_img !=""}}' class='icon fl' src='{{prodDetail.label_img}}'  bindload="iconLoad" style='width:{{image.width}}rpx;height:{{image.height}}rpx'></image>
+      {{prodDetail.goods_name}}
+    </view>
+    <view class='prod-price-box cf'>
+      <span class='price-box fl'>￥<text class='price'>{{prodDetail.goods_price}}</text></span>
+      <span class='or-price-box fl'>￥<text class='or-price'>{{prodDetail.market_price}}</text></span>
+      <text class='sales fr'>销量{{prodDetail.seller_number}}</text>
+    </view>
+  </view>
+  <!--添加数量  -->
+  <view class='pay-num cf'>
+    <text class='fl'>数量</text>
+    <text catchtap='reduce'  class="input cart-reduce">-</text>
+    <input bindinput='numChange' class="input cart-text" type='number' data-goodsnum='{{prodDetail.goods_number}}' value='{{num}}'></input>
+    <text catchtap='add' class="input cart-add" data-goodsnum='{{prodDetail.goods_number}}'>+</text>
+    <text class='pay-tip'>{{prodDetail.xiangou}}</text>
+  </view>
+  <!--产品详情-->
+  <view class='prod-detail'>
+    <view class='detail-title'>产品详情</view>
+    <view wx:for="{{prodDetail.goods_desc}}" wx:for-index="index" wx:key="*this">
+      <image class='detail-img' src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+    </view>
+  </view>
+  <!--立即购买  -->
+  <button type="warn" class='pay-btn' catchtap='subOrder'>立即购买</button>
+</view>

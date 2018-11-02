@@ -1,0 +1,112 @@
+/* pages/group/groupMore.wxss */
+@import "/common/wxss/common.wxss";
+.prod-box{
+  padding: 30rpx;
+  background-color: #fff;
+  display: flex;
+  
+}
+.prod-img{
+  flex: 1;
+  width: 150rpx;
+  height: 175rpx;
+}
+.prod-info{
+  flex: 3
+}
+.prod-name{
+  font-size: 30rpx;
+  color: #333333;
+  min-height: 80rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.prod-spec{
+  font-size: 24rpx;
+  color: #999999;
+  margin: 5rpx 0 10rpx;
+  min-height: 32rpx;
+}
+.prod-price{
+  display: flex;
+  
+}
+.price-box{
+  flex: 3;
+  font-size: 30rpx;
+  color: #F55A52;
+}
+.price{
+  font-size: 36rpx;
+}
+.price-old{
+  font-size: 20rpx;
+  color: #999999;
+  text-decoration: line-through;
+  margin-left: 28rpx;
+}
+.group-number{
+  flex: 1;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 48rpx;
+}
+.number{
+  color: #F55A52;
+}
+
+.group-open-list{
+  padding: 0 30rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.group-open-item{
+  display: flex;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #EFEFEF;
+}
+.group-open-item:last-child{
+  border: none
+}
+.user-info{
+  flex: 1
+}
+.user-img{
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #333
+}
+.user-name{
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 80rpx;
+  margin-left: 10rpx;
+}
+.group-numSurp-box{
+  flex: 1;
+  line-height: 80rpx;
+}
+.group-open-tip{
+  font-size: 24rpx;
+  color: #333333;
+}
+.group-numSurp{
+  font-size: 32rpx;
+  color: #F55A52;
+}
+.join-btn{
+  font-size: 26rpx;
+  line-height: 60rpx;
+  margin: 10rpx 0 10rpx 20rpx;
+}
+.groupMore-tip{
+  font-size: 26rpx;
+  text-align: center;
+  padding: 20rpx 0;
+}

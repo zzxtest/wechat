@@ -1,0 +1,53 @@
+<!--pages/order/order.wxml-->
+<view class='order'>
+    <view class='swiper-tab' id='swiperTab'>
+        <view class='tab-item {{currentTab==0 ? "hover": ""}}' data-current='0' bindtap='switchNav'>全部</view>
+        <view class='tab-item {{currentTab==1 ? "hover": ""}}' data-current='1' bindtap='switchNav'>待付款</view>
+        <view class='tab-item {{currentTab==3 ? "hover": ""}}' data-current='3' bindtap='switchNav'>待收货</view>
+        <view class='tab-item {{currentTab==5 ? "hover": ""}}' data-current='5' bindtap='switchNav'>已完成</view>
+    </view>
+    <!--全部订单  -->
+    <view class='swiper' wx:if='{{key[currentTab].no}}==currentTab'>
+         <view class='no-order' wx:if='{{listData.length == 0}}'>
+            <image src='/images/order-search.png' mode='aspectFill'></image>
+            <text>暂无此类订单记录</text>
+        </view> 
+        <!--订单列表  -->
+        <view class='order-list'>
+          <block wx:for='{{listData}}' wx:key='listData'>
+            <view class='order-item'>
+              <!--订单编号、状态  -->
+              <view class='item-top cf' catchtap='clcikShow'>
+                <text class='order-code fl'>订单编号：{{item.order_sn}}</text>
+                <text class='order-state fr'>{{item.status_str}}</text>
+              </view>
+              <!--商品信息  -->
+              <view class='item-cont' wx:for='{{item.order_goods}}' wx:for-item='goods' wx:key='goods' catchtap='clcikShow'>
+                <image class='prod-img' src='{{goods.goods_thumb}}'></image>
+                <view class='prod-box'>
+                  <view class='prod-name'>{{goods.goods_name}}</view>
+                  <view class='prod-spec'>{{goods.goods_spec}}</view>
+                  <view class='prod-info cf'>
+                    <text class='prod-price fl'>￥{{goods.goods_price}}</text>
+                    <text class='prod-num fr'>x{{goods.goods_number}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='item-bottom cf'>
+                <view class='order-amount fl'>合计：￥{{item.order_amount}}</view>
+                <view class='order-btn fr'>
+                  <block wx:for='{{item.btn_type}}' wx:for-item='btn_type' wx:key='*this' wx:for-index='f_index'>
+                    <button class='f-btn' data-orderid='{{item.order_id}}' catchtap='{{btn_type.op == "pay" ? "payBtn" : "clcikShow"}}' plain='true' size='mini'>{{btn_type.btn_name}}</button>
+                  </block>
+                  <!-- <button class='t-btn' plain='true' size='mini'>咨询客服</button> -->
+                </view>
+              </view>
+            </view>
+          </block> 
+          
+        </view>
+        <view wx:if='{{listData.length != 0}}' class='no-enough'>
+            已经没有更多订单了~
+        </view>
+    </view>
+</view>
